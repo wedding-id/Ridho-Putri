@@ -9840,3 +9840,11 @@ a.text-dark:hover, a.text-dark:focus {
     opacity: 0;
   }
 }
+
+#playBtn {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+#playBtn.show {
+    opacity: 1;
+}
