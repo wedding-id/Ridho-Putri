@@ -376,7 +376,7 @@
     <!-- Event End -->
 
 
-    <!-- Friends & Family Start -->
+    <!-- Ado & Atiw Start -->
     <div class="container-fluid py-5" id="family">
         <div class="container pt-5 pb-3">
             <div class="section-title position-relative text-center">
@@ -486,7 +486,29 @@
             </div>
         </div>
     </div>
-    <!-- Friends & Family End -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var $grid = $('.portfolio-container').isotope({
+                itemSelector: '.portfolio-item',
+                layoutMode: 'fitRows'
+            });
+
+            $grid.isotope({ filter: '*' });
+
+            $('#portfolio-flters li').on('click', function(){
+                $('#portfolio-flters li').removeClass('active');
+                $(this).addClass('active');
+
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+            });
+        });
+    </script>
+    <!-- Ado & Atiw End -->
 
 
     <!-- RSVP Start -->
