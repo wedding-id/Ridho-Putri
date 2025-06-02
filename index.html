@@ -156,6 +156,27 @@
         isPlaying = !isPlaying;
     });
     </script>
+
+     <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const playBtn = document.getElementById("playBtn");
+        const homeSection = document.getElementById("home");
+
+        function checkScroll() {
+            const homeRect = homeSection.getBoundingClientRect();
+            if (homeRect.bottom <= window.innerHeight - 150) {
+                // Di luar home, tampilkan tombol
+                playBtn.classList.add("show");
+            } else {
+                // Masih di home, sembunyikan tombol
+                playBtn.classList.remove("show");
+            }
+        }
+
+        window.addEventListener("scroll", checkScroll);
+        checkScroll();
+    });
+    </script>
     <!-- Music Player End -->
 
     <!-- About Start -->
