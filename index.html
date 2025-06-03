@@ -489,22 +489,30 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
     <script>
-        $(document).ready(function(){
-            var $grid = $('.portfolio-container').isotope({
-                itemSelector: '.portfolio-item',
-                layoutMode: 'fitRows'
-            });
+        $(document).ready(function () {
+            var $grid = $('.portfolio-container');
 
-            $grid.isotope({ filter: '*' });
+            // Pastikan gambar dimuat dulu sebelum isotope aktif
+            $grid.imagesLoaded(function () {
+                $grid.isotope({
+                    itemSelector: '.portfolio-item',
+                    layoutMode: 'fitRows'
+                });
 
-            $('#portfolio-flters li').on('click', function(){
-                $('#portfolio-flters li').removeClass('active');
-                $(this).addClass('active');
+                // Filter awal (semua tampil)
+                $grid.isotope({ filter: '*' });
 
-                var filterValue = $(this).attr('data-filter');
-                $grid.isotope({ filter: filterValue });
+                // Tombol filter klik
+                $('#portfolio-flters li').on('click', function () {
+                    $('#portfolio-flters li').removeClass('active');
+                    $(this).addClass('active');
+
+                    var filterValue = $(this).attr('data-filter');
+                    $grid.isotope({ filter: filterValue });
+                });
             });
         });
     </script>
