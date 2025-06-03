@@ -9848,3 +9848,15 @@ a.text-dark:hover, a.text-dark:focus {
 #playBtn.show {
     opacity: 1;
 }
+
+#portfolio-flters li {
+    background-color: transparent;
+    border-color: #E47A2E;
+    color: #E47A2E;
+}
+
+#portfolio-flters li.active {
+    background-color: #E47A2E;
+    color: white;
+}
+
