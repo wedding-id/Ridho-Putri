@@ -504,24 +504,25 @@
 
         var activeFilter = null;
 
-        $('#portfolio-flters').on('click', '.filter-btn', function () {
-            var filterValue = $(this).attr('data-filter');
+        $('#portfolio-flters li').on('click', function () {
+            var $this = $(this);
+            var filterValue = $this.attr('data-filter');
 
             if (activeFilter === filterValue) {
-                // Jika klik tombol yang sama, reset filter
+                // Nonaktifkan filter, tampilkan semua
                 $grid.isotope({ filter: '*' });
-                $('.filter-btn').removeClass('active');
+                $this.removeClass('active'); // hapus kelas active dari tombol yang diklik
                 activeFilter = null;
             } else {
-                // Aktifkan filter baru
+                // Terapkan filter baru
                 $grid.isotope({ filter: filterValue });
-                $('.filter-btn').removeClass('active');
-                $(this).addClass('active');
+                $('#portfolio-flters li').removeClass('active'); // hapus semua
+                $this.addClass('active'); // tambahkan ke tombol yang diklik
                 activeFilter = filterValue;
             }
         });
     });
-    </script>
+</script>
     <!-- Ado & Atiw End -->
 
 
